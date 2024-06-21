@@ -20,7 +20,7 @@ load_dotenv()
 
 class WebcamStream:
     def __init__(self):
-        self.stream = VideoCapture(index=0)
+        self.stream = VideoCapture(index=1)
         _, self.frame = self.stream.read()
         self.running = False
         self.lock = Lock()
@@ -136,11 +136,11 @@ class Assistant:
 
 webcam_stream = WebcamStream().start()
 
-model = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest")
+#model = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest")
 
 # You can use OpenAI's GPT-4o model instead of Gemini Flash
 # by uncommenting the following line:
-# model = ChatOpenAI(model="gpt-4o")
+model = ChatOpenAI(model="gpt-4o")
 
 assistant = Assistant(model)
 
